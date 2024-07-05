@@ -25,6 +25,37 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.github.skylot/jadx-core -->
+    <dependency>
+        <groupId>io.github.skylot</groupId>
+        <artifactId>jadx-core</artifactId>
+        <version>1.5.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.github.skylot/jadx-dex-input -->
+    <dependency>
+        <groupId>io.github.skylot</groupId>
+        <artifactId>jadx-dex-input</artifactId>
+        <version>1.5.0</version>
+        <scope>runtime</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.github.skylot/jadx-java-convert -->
+    <dependency>
+        <groupId>io.github.skylot</groupId>
+        <artifactId>jadx-java-convert</artifactId>
+        <version>1.5.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.github.skylot/jadx-smali-input -->
+    <dependency>
+        <groupId>io.github.skylot</groupId>
+        <artifactId>jadx-smali-input</artifactId>
+        <version>1.5.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-jdk14</artifactId>
+        <version>2.0.13</version>
+        <scope>runtime</scope>
+    </dependency>  
   </dependencies>
 
   <build>
@@ -69,7 +100,28 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>com.example.hellojadx.App</mainClass>
+              </manifest>
+            </archive>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <repositories>
+    <repository>
+      <id>google</id>
+      <name>google Repository</name>
+      <url>https://maven.google.com/</url>
+    </repository>
+  </repositories>
 </project>
